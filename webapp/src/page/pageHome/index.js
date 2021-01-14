@@ -9,11 +9,14 @@ import banner from "./assets/banner.png";
 
 function Home(props) {
     const [step, setStep] = useState(0);
-    const [section, setSection] = useState(0);
+    const [section, setSection] = useState(-1);
     const boxDom = useRef(null);
     const isChangeSection = useRef();
     isChangeSection.current = false;
-    useEffect(()=>{
+    useEffect(() => {
+        setTimeout(() => {
+            setSection(0);
+        }, 300);
         if (document.addEventListener) { //火狐使用DOMMouseScroll绑定
             document.addEventListener('DOMMouseScroll', scrollFunc, false);
         }
@@ -28,34 +31,34 @@ function Home(props) {
         }
     }, []);
 
-    useEffect(()=>{
-        if(step<=-480){
-            setSection(section>=3? 3 : section+1);
+    useEffect(() => {
+        if (step <= -480) {
+            setSection(section >= 3 ? 3 : section + 1);
             setStep(0);
             return false;
         }
-        if(step>=480){
-            setSection(section<=0? 0 : section-1);
+        if (step >= 480) {
+            setSection(section <= 0 ? 0 : section - 1);
             setStep(0);
             return false;
         }
     }, [step]);
 
-    useEffect(()=>{
+    useEffect(() => {
         // console.log('zkf', section, boxDom.current.offsetHeight*section);
         // isChangeSection.current = true
         // boxDom.current.scrollTo({ 
         //     top: boxDom.current.offsetHeight*section, 
         //     behavior: "smooth" 
         // });
-        
-        setTimeout(()=>{
+
+        setTimeout(() => {
             isChangeSection.current = false;
         }, 800)
     }, [section]);
 
     const scrollFunc = e => {
-        if(isChangeSection.current === true)return;
+        if (isChangeSection.current === true) return;
         e = e || window.event;
         if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
             changeStep(e.wheelDelta);
@@ -69,7 +72,7 @@ function Home(props) {
         // if(section === 0 && val > 0)return false;
         // // 已经在最后一页并且向下滚动时
         // if(section === 3 && val < 0)return false;
-        setStep(value=>value+val);
+        setStep(value => value + val);
     }
 
     return (
@@ -84,7 +87,7 @@ function Home(props) {
                     <img className="line-bar reverse" alt="" src={bar1} />
                     {/* <span className="line-bar reverse"></span> */}
                 </div>
-                <div className={`section-item ${section === 1 ? 'active' : section > 1 ? 'up' : 'down'}`} style={{padding:'2vh 0'}}>
+                <div className={`section-item ${section === 1 ? 'active' : section > 1 ? 'up' : 'down'}`} style={{ padding: '2vh 0' }}>
                     <div className="section-style2">
                         <div className="titlebox">
                             <h5 className="title1">Customized</h5>
@@ -122,20 +125,20 @@ function Home(props) {
                             <div className="rightbox">
                                 {/* <img alt="" src={banner}/> */}
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                <div className={`section-item ${section === 3 ? 'active' : 'down'}`}  style={{
-                        justifyContent: 'flex-end',
-                    }}>
-                    <Footer/>
+                <div className={`section-item ${section === 3 ? 'active' : 'down'}`} style={{
+                    justifyContent: 'flex-end',
+                }}>
+                    <Footer />
                 </div>
             </div>
             <div className="stepBox">
-                <div className="stepBg" style={{top:`${section*25}%`}}></div>
-                {new Array(4).fill(1).map((item,index)=>{
-                    return <span key={index} className="stepItem" onClick={()=>setSection(index)}></span>
+                <div className="stepBg" style={{ top: `${section * 25}%` }}></div>
+                {new Array(4).fill(1).map((item, index) => {
+                    return <span key={index} className="stepItem" onClick={() => setSection(index)}></span>
                 })}
             </div>
         </div>

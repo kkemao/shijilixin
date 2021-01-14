@@ -10,19 +10,40 @@
     top: 0;
 
     .section-item {
-      &.bgc{
+      &.bgc {
         background-image: url(./assets/1.png);
       }
-      &.active{
-        transform:translateY(0);
+      &.active {
+        transform: translateY(0);
+        .text1,
+        .text2,
+        .line-bar {
+          transform: translateX(0);
+          &.reverse {
+            transform: translateX(0);
+          }
+        }
+
+        .title2,
+        .title3 {
+          animation: toshow1 1s ease;
+        }
+
+        .arrowbox {
+          animation: toshow2 1s ease;
+        }
+
+        .title4 {
+          animation: toshow3 1s ease;
+        }
       }
-      &.up{
-        transform:translateY(-100%);
+      &.up {
+        transform: translateY(-100%);
       }
-      &.down{
-        transform:translateY(100%);
+      &.down {
+        transform: translateY(100%);
       }
-      transform:translateY(-100%);
+      transform: translateY(-100%);
       display: flex;
       height: 100%;
       width: 100%;
@@ -33,8 +54,12 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: all .3s ease;
-
+      transition: all 0.3s ease;
+      .text1,
+      .text2 {
+        transition: all 0.2s ease-out;
+        transition-delay: 0.4s;
+      }
       .text1 {
         width: 40%;
         min-width: 400px;
@@ -45,10 +70,11 @@
         white-space: nowrap;
         text-shadow: 1px 1px 1px black;
         text-shadow: 0px 0px 10px black;
+        transform: translateX(-200%);
         &:after {
           content: "";
           display: inline-block;
-          background-image: url(./assets/+.png);
+          background-image: url(./assets/add.png);
           background-size: cover;
           width: 20px;
           height: 20px;
@@ -68,18 +94,23 @@
         white-space: nowrap;
         text-shadow: 1px 1px 1px #717171, 2px 2px 1px #eee, 3px 3px 1px #717171,
           4px 4px 1px #eee;
+        transform: translateX(200%);
       }
       .line-bar {
         position: relative;
         right: -10vw;
-        margin: 3vh 0;
+        margin: 5vh 0;
+        transition: all 0.3s ease-out;
+        transition-delay: 0.3s;
+        transform: translateX(-100%);
         &.reverse {
           right: auto;
           left: -10vw;
+          transform: translateX(100%);
         }
       }
 
-      .section-style2{
+      .section-style2 {
         width: 100%;
         height: 100%;
         display: flex;
@@ -87,34 +118,40 @@
         align-items: center;
         justify-content: center;
 
-        h5{margin:0}
-        .titlebox{
+        h5 {
+          margin: 0;
+        }
+        .titlebox {
           display: flex;
           flex-direction: column;
           align-items: center;
         }
-        .title1{
+        .title1 {
           font-size: 7vw;
           font-family: Avenir Next;
           font-weight: bold;
           color: rgba(255, 255, 255, 0.03);
         }
-        .title2{
+        .title2 {
           font-size: 2.5vw;
           font-family: OPPOSans;
           font-weight: bold;
-          color: #FFF;
+          color: #fff;
           margin-bottom: 2vw;
-          background-image:-webkit-linear-gradient(bottom, rgba(77, 189, 247, 0.6), rgba(234, 234, 234, 0.6)); 
-          -webkit-background-clip:text; 
-          -webkit-text-fill-color:transparent; 
+          background-image: -webkit-linear-gradient(
+            bottom,
+            rgba(77, 189, 247, 0.6),
+            rgba(234, 234, 234, 0.6)
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
-        .title3{
+        .title3 {
           font-size: 1.3vw;
           font-family: OPPOSans;
           color: #ccc;
         }
-        .title4{
+        .title4 {
           font-size: 1.2vw;
           font-family: OPPOSans;
           color: #bbb;
@@ -124,21 +161,21 @@
           text-align: center;
           line-height: 2vw;
         }
-        .arrowbox{
+        .arrowbox {
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          color: #21D9E5;
+          color: #21d9e5;
           font-size: 1.3vw;
           margin: 4vw 0;
-          &.sw{
+          &.sw {
             width: 60%;
             min-width: 800px;
             height: 30%;
           }
         }
-        .radius{
+        .radius {
           display: flex;
           background-image: url(./assets/radius.png);
           width: 6vw;
@@ -149,22 +186,23 @@
           justify-content: center;
           font-weight: bold;
         }
-        .arrow{
+        .arrow {
           display: flex;
           background-image: url(./assets/arrow.png);
           width: 3vw;
           height: 3vw;
           background-size: contain;
           background-repeat: no-repeat;
+          margin: 0 0.5vw;
         }
-        .bottomline{
+        .bottomline {
           height: 4vw;
           background-image: url(./assets/whitearrow.png);
           border-bottom: 1px solid white;
           background-repeat: no-repeat;
           background-size: auto 60%;
         }
-        .leftbox{
+        .leftbox {
           flex: 1;
           margin-right: 2vw;
           height: 100%;
@@ -172,12 +210,12 @@
           flex-direction: column;
           justify-content: space-between;
 
-          .title4{
+          .title4 {
             min-width: 100%;
             text-align: left;
           }
         }
-        .rightbox{
+        .rightbox {
           flex: 1.2;
           background-image: url(./assets/banner.png);
           height: 100%;
@@ -188,7 +226,7 @@
       }
     }
   }
-  .stepBox{
+  .stepBox {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -198,23 +236,79 @@
     width: 10px;
     height: 100px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .15);
-    :nth-child(2){
-      border-top: 0px solid rgba(255, 255, 255, 0)!important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    :nth-child(2) {
+      border-top: 0px solid rgba(255, 255, 255, 0) !important;
     }
-    .stepBg{
+    .stepBg {
       position: absolute;
       left: 0;
       height: 25%;
       width: 100%;
       background: #18e;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
-    .stepItem{
+    .stepItem {
       position: relative;
-      border-top: 1px solid rgba(255, 255, 255, .1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       flex: 1;
       cursor: pointer;
     }
+  }
+}
+@keyframes toshow1 {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes toshow2 {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes toshow3 {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes toshow4 {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

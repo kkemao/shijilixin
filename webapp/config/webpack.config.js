@@ -145,6 +145,7 @@ module.exports = function (webpackEnv) {
           options: {
             sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
             root: paths.appSrc,
+            removeCR: true,
           },
         },
         {
