@@ -6,6 +6,7 @@ import Footer from "appSrc/component/footer";
 import bar1 from "./assets/2.png";
 import bar2 from "./assets/3.png";
 import banner from "./assets/banner.png";
+import Test from "./test";
 
 function Home(props) {
     const [step, setStep] = useState(0);
