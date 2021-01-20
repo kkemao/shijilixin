@@ -4,7 +4,7 @@ import AboutUs from 'appSrc/page/aboutUs'
 import Business from 'appSrc/page/business'
 import './App.css'
 
-function App () {
+function App() {
   return (
     <Router>
       <Route
