@@ -1,11 +1,11 @@
-import React from "react";
-import "./index.scss";
-import { withRouter } from "react-router";
-import logo from "./logo.png";
+import React from 'react'
+import './index.scss'
+import { withRouter } from 'react-router'
+import logo from './logo.png'
 
-function Header(props) {
-    const { history } = props;
-    return (
+function Header (props) {
+  const { history } = props
+  return (
         <div className="header">
             <div>
                 <span className="logo" onClick={() => props.history.push('/home')}>
@@ -17,8 +17,7 @@ function Header(props) {
                 </span>
             </div>
         </div>
-    );
+  )
 }
 
-export default withRouter(Header);
-
+export default withRouter(Header)

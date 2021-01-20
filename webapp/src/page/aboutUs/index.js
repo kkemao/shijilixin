@@ -1,11 +1,11 @@
-import React from "react";
-import "./index.scss";
+import React from 'react'
+import './index.scss'
 
-import Header from "appSrc/component/header";
-import Footer from "appSrc/component/footer";
+import Header from 'appSrc/component/header'
+import Footer from 'appSrc/component/footer'
 
-function AboutUs(props) {
-    return (
+function AboutUs (props) {
+  return (
         <div className="aboutus-wrap">
             <div className="section-box">
                 <Header />
@@ -22,7 +22,7 @@ function AboutUs(props) {
                         <div className="splitbar"></div>
                         <div>
                             <h5>地址：深圳市南山区粤海街道海珠社区海德三道199号天利中央广场1407</h5>
-                            <h5 style={{margin: '1vh 0'}}>电话：0755-23607360</h5>
+                            <h5 style={{ margin: '1vh 0' }}>电话：0755-23607360</h5>
                             <h5>商务合作：Jane.zhong@aspsilicon.com</h5>
                         </div>
                     </div>
@@ -30,8 +30,7 @@ function AboutUs(props) {
                 <Footer />
             </div>
         </div>
-    );
+  )
 }
 
-export default AboutUs;
-
+export default AboutUs
